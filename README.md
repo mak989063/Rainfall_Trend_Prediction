@@ -18,6 +18,3 @@ An interactive dashboard built using Streamlit that visualizes district-wise rai
 pip install -r requirements.txt
 streamlit run dashboard/app.py
 ```
-
-## 📘 License
-MIT
