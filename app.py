@@ -30,7 +30,7 @@ except Exception as e:
 # Sidebar filters
 districts = df_melted["District"].unique()
 selected_districts = st.sidebar.multiselect("Select District(s):", options=districts, default=["Palakkad"])
-year_range = st.sidebar.slider("Select Year Range:", int(df_melted['Year'].min()), int(df_melted['Year'].max()), (2015, 2025))
+year_range = st.sidebar.slider("Select Year Range:", int(df_melted['Year'].min()), int(df_melted['Year'].max()), (2020, 2025))
 
 # Filter data
 filtered = df_melted[
@@ -53,4 +53,5 @@ st.pyplot(fig)
 # District-wise total summary
 st.subheader("🗺️ District-wise Rainfall Summary")
 total_rainfall = filtered.groupby("District")["Rainfall"].sum().reset_index()
-st.dataframe(total_rainfall.sort_values(by="Rainfall", ascending=False))
+total_rainfall = total_rainfall.rename(columns={"Rainfall": "Annual_Rainfall (mm)"})
+st.dataframe(total_rainfall.sort_values(by="Annual_Rainfall (mm)", ascending=False))
