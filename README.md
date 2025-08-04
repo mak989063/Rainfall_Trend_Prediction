@@ -16,5 +16,5 @@ An interactive dashboard built using Streamlit that visualizes district-wise rai
 ## 🚀 Run Locally
 ```bash
 pip install -r requirements.txt
-streamlit run dashboard/app.py
+streamlit run /app.py
 ```
